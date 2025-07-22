@@ -43,7 +43,7 @@ jobs:
           TOKEN: ${{secrets.TOKEN}}
           REPO_OWNER: 'jinwuwu001'
           REPO_NAME: 'tgfx_demo'
-          HOOK_ID: '1024152821'
+          HOOK_ID: '559486171'
           LAST_REDELIVERY_VARIABLE_NAME: ${{vars.LAST_REDELIVERY_VARIABLE_NAME}}
 
           WORKFLOW_REPO_NAME: ${{ github.event.repository.name }}
