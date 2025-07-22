@@ -40,7 +40,7 @@ jobs:
 
       - name: Run script
         env:
-          TOKEN: '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'
+          TOKEN: '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'
           REPO_OWNER: 'jinwuwu001'
           REPO_NAME: 'tgfx_demo'
           HOOK_ID: '1024152821'
