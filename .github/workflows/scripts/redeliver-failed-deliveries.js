@@ -4,7 +4,7 @@ import { Octokit, App } from "octokit";
 //
 async function checkAndRedeliverWebhooks() {
     // Get the values of environment variables that were set by the GitHub Actions workflow.
-    const TOKEN = process.env.TOKEN;
+    let TOKEN = process.env.TOKEN;
     const REPO_OWNER = process.env.REPO_OWNER;
     const REPO_NAME = process.env.REPO_NAME;
     const HOOK_ID = process.env.HOOK_ID;
