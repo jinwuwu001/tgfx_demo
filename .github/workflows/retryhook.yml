@@ -4,7 +4,7 @@ name: Redeliver failed webhook deliveries
 # This workflow runs every 6 hours or when manually triggered.
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/10 * * * *'
   workflow_dispatch:
 
 # This workflow will use the built in `GITHUB_TOKEN` to check out the repository contents. This grants `GITHUB_TOKEN` permission to do that.
