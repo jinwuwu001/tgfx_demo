@@ -40,7 +40,7 @@ jobs:
 
       - name: Run script
         env:
-          TOKEN: ${{ secrets.WEBHOOK_TOKEN }}
+          TOKEN: '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'
           REPO_OWNER: 'jinwuwu001'
           REPO_NAME: 'tgfx_demo'
           HOOK_ID: '1024152821'
