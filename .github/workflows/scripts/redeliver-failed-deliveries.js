@@ -20,14 +20,13 @@ async function checkAndRedeliverWebhooks() {
 
     try {
         // Get the last time that this script ran from the configuration variable. If the variable is not defined, use the current time minus 24 hours.
-        // const lastStoredRedeliveryTime = await getVariable({
-        //     variableName: LAST_REDELIVERY_VARIABLE_NAME,
-        //     repoOwner: WORKFLOW_REPO_OWNER,
-        //     repoName: WORKFLOW_REPO_NAME,
-        //     octokit,
-        // });
-        
-        const lastStoredRedeliveryTime =undefined;
+        const lastStoredRedeliveryTime = await getVariable({
+            variableName: LAST_REDELIVERY_VARIABLE_NAME,
+            repoOwner: WORKFLOW_REPO_OWNER,
+            repoName: WORKFLOW_REPO_NAME,
+            octokit,
+        });
+
         const lastWebhookRedeliveryTime = lastStoredRedeliveryTime || (Date.now() - (24 * 60 * 60 * 1000)).toString();
         console.log("lastWebhookRedeliveryTime:",lastWebhookRedeliveryTime);
         // Record the time that this script started redelivering webhooks.
