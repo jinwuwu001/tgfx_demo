@@ -20,17 +20,20 @@ async function checkAndRedeliverWebhooks() {
 
     try {
         // Get the last time that this script ran from the configuration variable. If the variable is not defined, use the current time minus 24 hours.
-        const lastStoredRedeliveryTime = await getVariable({
-            variableName: LAST_REDELIVERY_VARIABLE_NAME,
-            repoOwner: WORKFLOW_REPO_OWNER,
-            repoName: WORKFLOW_REPO_NAME,
-            octokit,
-        });
+        // const lastStoredRedeliveryTime = await getVariable({
+        //     variableName: LAST_REDELIVERY_VARIABLE_NAME,
+        //     repoOwner: WORKFLOW_REPO_OWNER,
+        //     repoName: WORKFLOW_REPO_NAME,
+        //     octokit,
+        // });
+        
+        const lastStoredRedeliveryTime =undefined;
         const lastWebhookRedeliveryTime = lastStoredRedeliveryTime || (Date.now() - (24 * 60 * 60 * 1000)).toString();
-
+        console.log("lastWebhookRedeliveryTime:",lastWebhookRedeliveryTime);
         // Record the time that this script started redelivering webhooks.
         const newWebhookRedeliveryTime = Date.now().toString();
 
+        console.log("get fetchWebhookDeliveriesSince start");
         // Get the webhook deliveries that were delivered after `lastWebhookRedeliveryTime`.
         const deliveries = await fetchWebhookDeliveriesSince({
             lastWebhookRedeliveryTime,
@@ -39,6 +42,8 @@ async function checkAndRedeliverWebhooks() {
             hookId: HOOK_ID,
             octokit,
         });
+
+        console.log("get fetchWebhookDeliveriesSince end");
 
         // Consolidate deliveries that have the same globally unique identifier (GUID). The GUID is constant across redeliveries of the same delivery.
         let deliveriesByGuid = {};
