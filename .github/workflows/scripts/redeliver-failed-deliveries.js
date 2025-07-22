@@ -4,7 +4,7 @@ import { Octokit, App } from "octokit";
 //
 async function checkAndRedeliverWebhooks() {
     // Get the values of environment variables that were set by the GitHub Actions workflow.
-    let TOKEN = process.env.TOKEN;
+    const TOKEN = process.env.TOKEN;
     const REPO_OWNER = process.env.REPO_OWNER;
     const REPO_NAME = process.env.REPO_NAME;
     const HOOK_ID = process.env.HOOK_ID;
@@ -12,8 +12,6 @@ async function checkAndRedeliverWebhooks() {
 
     const WORKFLOW_REPO_NAME = process.env.WORKFLOW_REPO_NAME;
     const WORKFLOW_REPO_OWNER = process.env.WORKFLOW_REPO_OWNER;
-    TOKEN="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";
-    console.log("TOKEN:",TOKEN);
 
     // Create an instance of `Octokit` using the token values that were set in the GitHub Actions workflow.
     const octokit = new Octokit({
