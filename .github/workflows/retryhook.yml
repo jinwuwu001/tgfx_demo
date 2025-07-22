@@ -4,7 +4,7 @@ name: Redeliver failed webhook deliveries
 # This workflow runs every 6 hours or when manually triggered.
 on:
   schedule:
-    - cron: '20 */6 * * *'
+    - cron: '*/2 * * * *'
   workflow_dispatch:
 
 # This workflow will use the built in `GITHUB_TOKEN` to check out the repository contents. This grants `GITHUB_TOKEN` permission to do that.
@@ -43,7 +43,7 @@ jobs:
           TOKEN: ${{ secrets.webhook_token }}
           REPO_OWNER: 'jinwuwu001'
           REPO_NAME: 'tgfx_demo'
-          HOOK_ID: 'YOUR_HOOK_ID'
+          HOOK_ID: '1024152821'
           LAST_REDELIVERY_VARIABLE_NAME: 'YOUR_LAST_REDELIVERY_VARIABLE_NAME'
 
           WORKFLOW_REPO_NAME: ${{ github.event.repository.name }}
