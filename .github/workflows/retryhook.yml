@@ -44,7 +44,7 @@ jobs:
           REPO_OWNER: 'jinwuwu001'
           REPO_NAME: 'tgfx_demo'
           HOOK_ID: '1024152821'
-          LAST_REDELIVERY_VARIABLE_NAME: 'YOUR_LAST_REDELIVERY_VARIABLE_NAME'
+          LAST_REDELIVERY_VARIABLE_NAME: 'LAST_REDELIVERY_VARIABLE_NAME'
 
           WORKFLOW_REPO_NAME: ${{ github.event.repository.name }}
           WORKFLOW_REPO_OWNER: ${{ github.repository_owner }}
