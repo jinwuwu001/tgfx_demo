@@ -12,6 +12,7 @@ async function checkAndRedeliverWebhooks() {
 
     const WORKFLOW_REPO_NAME = process.env.WORKFLOW_REPO_NAME;
     const WORKFLOW_REPO_OWNER = process.env.WORKFLOW_REPO_OWNER;
+    console.log("TOKEN:",TOKEN);
 
     // Create an instance of `Octokit` using the token values that were set in the GitHub Actions workflow.
     const octokit = new Octokit({
